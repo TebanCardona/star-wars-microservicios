@@ -5,10 +5,23 @@ module.exports = {
     const result = await axios.get("http://databases:8004/Characters");
     return result.data;
   },
-  create: async () => {
-    throw { message: "Error magico ", status: 501 };
+  get: async (id) => {
+    const result = await axios.get(`http://databases:8004/Characters/${id}`);
+    return result.data;
   },
-  delete: async () => {
-    throw { message: "Error magico ", status: 501 };
+  create: async (data) => {
+    const result = await axios.post("http://databases:8004/Characters", data);
+    return result.data;
+  },
+  delete: async (id) => {
+    const result = await axios.delete(`http://databases:8004/Characters/${id}`);
+    return result.data;
+  },
+  update: async (id, data) => {
+    const result = await axios.patch(
+      `http://databases:8004/Characters${id}`,
+      data
+    );
+    return result.data;
   },
 };

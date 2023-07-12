@@ -6,7 +6,9 @@ const middlewares = require("../middlewares");
 router.get("/hola", (req, res) => {
   res.send("Hola amigo! UwU");
 });
-router.get("/", controllers.getCharacter);
+router.get("/", controllers.listCharacter);
+router.get("/:id", controllers.getCharacter);
 router.post("/", middlewares.characterValidation, controllers.postCharacter);
-router.delete("/", controllers.deleteCharacter);
+router.delete("/:id", controllers.deleteCharacter);
+router.post("/:id", controllers.updateCharacter);
 module.exports = router;
