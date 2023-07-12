@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const { MONGO_URI } = require("../config/envs");
-console.log(MONGO_URI);
+console.log("\r*******************" + MONGO_URI + "\r ******************");
 const schemas = require("./schemas");
 const conn = mongoose.createConnection(MONGO_URI);
 module.exports = {
